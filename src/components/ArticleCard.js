@@ -15,7 +15,9 @@ const ArticleCard = ({
 }) => {
   return (
     <li key={article_id}>
-      <h2>{title}</h2>
+      <Link to={`/articles/${article_id}`}>
+        <h2>{title}</h2>
+      </Link>
       <h3>{author}</h3>
       <h4>created: {created_at}</h4>
       <h4>
