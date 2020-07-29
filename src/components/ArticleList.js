@@ -3,12 +3,12 @@ import { fetchArticles } from "../api";
 
 import ArticleCard from "./ArticleCard";
 
-const ArticleList = () => {
+const ArticleList = ({ topic }) => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles().then((articles) => {
+    fetchArticles(topic).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
