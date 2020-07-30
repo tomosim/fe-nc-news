@@ -4,14 +4,18 @@ import CommentList from "../components/CommentList";
 
 const SingleArticle = ({ article_id }) => {
   const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchArticleById(article_id).then((article) => {
       setArticle(article);
+      setIsLoading(false);
     });
   }, [article_id]);
 
-  return (
+  return isLoading ? (
+    <p>Loading article</p>
+  ) : (
     <div>
       <h1>{article.title}</h1>
       <p>{article.body}</p>
