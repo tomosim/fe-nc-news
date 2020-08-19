@@ -1,27 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { fetchCommentsByArticleId } from "../api";
+import { fetchCommentsByArticleId, postComment } from "../api";
 import CommentCard from "./CommentCard";
+import CommentAdder from "./CommentAdder";
 
 const CommentList = ({ article_id }) => {
   const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [commentsLoading, setCommentsLoading] = useState(true);
+  const [posting, setPosting] = useState(false);
 
   useEffect(() => {
     console.log("comments refetching");
     fetchCommentsByArticleId(article_id).then((comments) => {
       setComments(comments);
-      setIsLoading(false);
+      setCommentsLoading(false);
     });
   }, [article_id]);
 
-  return isLoading ? (
+  const addComment = (comment) => {
+    setPosting(true);
+    postComment(article_id, comment).then((comment) => {
+      setComments([comment, ...comments]);
+      setPosting(false);
+    });
+  };
+
+  return commentsLoading ? (
     <p>"Loading comments"</p>
   ) : (
-    <ul>
-      {comments.map((comment) => {
-        return <CommentCard {...comment} key={comment.comment_id} />;
-      })}
-    </ul>
+    <>
+      <CommentAdder addComment={addComment} />
+      <ul>
+        {posting && <li>posting...</li>}
+        {comments.map((comment) => {
+          return <CommentCard {...comment} key={comment.comment_id} />;
+        })}
+      </ul>
+    </>
   );
 };
 

@@ -23,3 +23,12 @@ export const fetchCommentsByArticleId = (article_id) => {
     .then(({ data }) => data.comments)
     .catch(console.log);
 };
+
+export const postComment = (article_id, comment) => {
+  return axios
+    .post(
+      `https://toms-nc-news-be.herokuapp.com/api/articles/${article_id}/comments`,
+      comment
+    )
+    .then(({ data }) => data.comment);
+};
