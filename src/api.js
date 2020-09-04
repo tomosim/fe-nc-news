@@ -32,3 +32,15 @@ export const postComment = (article_id, comment) => {
     )
     .then(({ data }) => data.comment);
 };
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(
+    `https://toms-nc-news-be.herokuapp.com/api/comments/${comment_id}`
+  );
+};
+
+export const fetchTopics = () => {
+  return axios
+    .get("https://toms-nc-news-be.herokuapp.com/api/topics")
+    .then(({ data }) => data.topics);
+};
