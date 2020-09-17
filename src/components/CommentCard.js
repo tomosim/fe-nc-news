@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@reach/router";
 
 const CommentCard = ({
   body,
@@ -21,7 +22,9 @@ const CommentCard = ({
   ) : (
     <li>
       <p>{body}</p>
-      <h3>author: {username}</h3>
+      <h3>
+        author: <Link to={`/user/${username}`}>{username}</Link>
+      </h3>
       <h4>votes: {votes}</h4>
       <h4>created_at: {created_at}</h4>
       <button onClick={handleDelete}>Delete</button>

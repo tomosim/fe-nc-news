@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchArticleById, deleteArticle } from "../api";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 import CommentList from "../components/CommentList";
 
 const SingleArticle = ({ article_id }) => {
@@ -25,7 +25,9 @@ const SingleArticle = ({ article_id }) => {
   ) : (
     <div>
       <h1>{article.title}</h1>
-      <h2>{article.author}</h2>
+      <h2>
+        <Link to={`/user/${article.author}`}>{article.author}</Link>
+      </h2>
       <p>{article.body}</p>
       <button onClick={handleClick}>Delete Article</button>
       <h2>Comments</h2>
