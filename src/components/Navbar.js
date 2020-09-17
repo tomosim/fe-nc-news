@@ -24,6 +24,7 @@ const Navbar = () => {
           ))}
         </nav>
       )}
+      <Link to="/user/jessjelly">My Profile</Link>
     </nav>
   );
 };

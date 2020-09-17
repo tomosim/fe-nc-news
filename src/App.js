@@ -5,6 +5,7 @@ import ArticlesByTopic from "./pages/ArticlesByTopic";
 import SingleArticle from "./pages/SingleArticle";
 import Navbar from "./components/Navbar";
 import PostArticle from "./pages/PostArticle";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <ArticlesByTopic path="/:topic/articles" />
         <SingleArticle path="/articles/:article_id" />
         <PostArticle path="/new-article" />
+        <ProfilePage path="/user/:username" />
       </Router>
     </>
   );

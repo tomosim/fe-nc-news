@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const fetchArticles = (topic) => {
+export const fetchArticles = ({ topic, author }) => {
   return axios
     .get("https://toms-nc-news-be.herokuapp.com/api/articles", {
-      params: { topic },
+      params: { topic, author },
     })
     .then(({ data }) => data.articles);
 };
