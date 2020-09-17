@@ -17,17 +17,17 @@ const Navbar = ({ loggedInUser }) => {
       <Link to="/">Home</Link>
       <button onClick={() => setSubNavIsOpen(!subNavIsOpen)}>Topics</button>
       {loggedInUser && <Link to="/new-article">Post New Article</Link>}
+      {loggedInUser === "" ? (
+        <Link to="/log-in">Login</Link>
+      ) : (
+        <Link to={`/user/${loggedInUser}`}>My Profile</Link>
+      )}
       {subNavIsOpen && (
         <nav>
           {topics.map((topic) => (
             <Link to={`/${topic.slug}/articles`}>{topic.slug}</Link>
           ))}
         </nav>
-      )}
-      {loggedInUser === "" ? (
-        <Link to="/log-in">Login</Link>
-      ) : (
-        <Link to={`/user/${loggedInUser}`}>My Profile</Link>
       )}
     </nav>
   );
