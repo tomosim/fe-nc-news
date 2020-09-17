@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { fetchCommentsByArticleId, postComment, deleteComment } from "../api";
 import CommentCard from "./CommentCard";
 import CommentAdder from "./CommentAdder";
+import { Link } from "@reach/router";
 
-const CommentList = ({ article_id }) => {
+const CommentList = ({ article_id, loggedInUser }) => {
   const [comments, setComments] = useState([]);
   const [commentsLoading, setCommentsLoading] = useState(true);
   const [posting, setPosting] = useState(false);
@@ -38,7 +39,13 @@ const CommentList = ({ article_id }) => {
     <p>"Loading comments"</p>
   ) : (
     <>
-      <CommentAdder addComment={addComment} />
+      {loggedInUser === "" ? (
+        <p>
+          You must be <Link to="/log-in">logged in</Link> to comment
+        </p>
+      ) : (
+        <CommentAdder addComment={addComment} />
+      )}
       <ul>
         {posting && <li>posting...</li>}
         {comments.map((comment) => {
@@ -47,6 +54,7 @@ const CommentList = ({ article_id }) => {
               {...comment}
               key={comment.comment_id}
               removeComment={removeComment}
+              loggedInUser={loggedInUser}
             />
           );
         })}

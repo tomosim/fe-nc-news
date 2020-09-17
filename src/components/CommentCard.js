@@ -8,6 +8,7 @@ const CommentCard = ({
   created_at,
   comment_id,
   removeComment,
+  loggedInUser,
 }) => {
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -27,7 +28,9 @@ const CommentCard = ({
       </h3>
       <h4>votes: {votes}</h4>
       <h4>created_at: {created_at}</h4>
-      <button onClick={handleDelete}>Delete</button>
+      {loggedInUser === username && (
+        <button onClick={handleDelete}>Delete</button>
+      )}
     </li>
   );
 };

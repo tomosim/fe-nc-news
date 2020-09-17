@@ -16,8 +16,11 @@ function App() {
       <Router>
         <AllArticles path="/" />
         <ArticlesByTopic path="/:topic/articles" />
-        <SingleArticle path="/articles/:article_id" />
-        <PostArticle path="/new-article" />
+        <SingleArticle
+          path="/articles/:article_id"
+          loggedInUser={loggedInUser}
+        />
+        <PostArticle path="/new-article" loggedInUser={loggedInUser} />
         <UserPage path="/user/:username" />
         <Login path="/log-in" setLoggedInUser={setLoggedInUser} />
       </Router>

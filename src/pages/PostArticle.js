@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { postNewArticle, fetchTopics } from "../api";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 
-const PostArticle = () => {
+const PostArticle = ({ loggedInUser }) => {
   const [newArticle, setNewArticle] = useState({
     title: "",
     topic: "loading topics...",
@@ -26,14 +26,18 @@ const PostArticle = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsPosting(true);
-    postNewArticle({ ...newArticle, author: "jessjelly" }).then(
+    postNewArticle({ ...newArticle, author: loggedInUser }).then(
       (article_id) => {
         console.log(article_id);
         navigate(`/articles/${article_id}`);
       }
     );
   };
-  return (
+  return loggedInUser === "" ? (
+    <p>
+      You must be <Link to="/log-in">logged in</Link> to post an article
+    </p>
+  ) : (
     <div>
       <h1>Post a new article</h1>
       {isPosting ? (

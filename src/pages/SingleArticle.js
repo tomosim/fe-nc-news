@@ -3,7 +3,7 @@ import { fetchArticleById, deleteArticle } from "../api";
 import { navigate, Link } from "@reach/router";
 import CommentList from "../components/CommentList";
 
-const SingleArticle = ({ article_id }) => {
+const SingleArticle = ({ article_id, loggedInUser }) => {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,9 +29,11 @@ const SingleArticle = ({ article_id }) => {
         <Link to={`/user/${article.author}`}>{article.author}</Link>
       </h2>
       <p>{article.body}</p>
-      <button onClick={handleClick}>Delete Article</button>
+      {loggedInUser === article.author && (
+        <button onClick={handleClick}>Delete Article</button>
+      )}
       <h2>Comments</h2>
-      <CommentList article_id={article_id} />
+      <CommentList article_id={article_id} loggedInUser={loggedInUser} />
     </div>
   );
 };

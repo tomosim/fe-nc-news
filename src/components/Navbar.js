@@ -16,7 +16,7 @@ const Navbar = ({ loggedInUser }) => {
     <nav>
       <Link to="/">Home</Link>
       <button onClick={() => setSubNavIsOpen(!subNavIsOpen)}>Topics</button>
-      <Link to="/new-article">Post New Article</Link>
+      {loggedInUser && <Link to="/new-article">Post New Article</Link>}
       {subNavIsOpen && (
         <nav>
           {topics.map((topic) => (
@@ -27,7 +27,7 @@ const Navbar = ({ loggedInUser }) => {
       {loggedInUser === "" ? (
         <Link to="/log-in">Login</Link>
       ) : (
-        <Link to="/user/jessjelly">My Profile</Link>
+        <Link to={`/user/${loggedInUser}`}>My Profile</Link>
       )}
     </nav>
   );
