@@ -1,7 +1,7 @@
 import React from "react";
 import ArticleList from "../components/ArticleList";
 
-const ProfilePage = ({ username }) => {
+const UserPage = ({ username }) => {
   return (
     <div>
       <h1>{username}</h1>
@@ -11,4 +11,4 @@ const ProfilePage = ({ username }) => {
   );
 };
 
-export default ProfilePage;
+export default UserPage;
