@@ -16,6 +16,7 @@ const Navbar = () => {
     <nav>
       <Link to="/">Home</Link>
       <button onClick={() => setSubNavIsOpen(!subNavIsOpen)}>Topics</button>
+      <Link to="/new-article">Post New Article</Link>
       {subNavIsOpen && (
         <nav>
           {topics.map((topic) => (

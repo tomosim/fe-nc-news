@@ -9,10 +9,10 @@ const ArticleList = ({ topic }) => {
 
   useEffect(() => {
     fetchArticles(topic).then((articles) => {
-      setArticles(articles);
       setIsLoading(false);
+      setArticles(articles);
     });
-  });
+  }, [topic]);
 
   return isLoading ? (
     <p>Loading</p>

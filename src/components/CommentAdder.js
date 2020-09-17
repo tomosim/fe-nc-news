@@ -15,7 +15,10 @@ const CommentAdder = ({ addComment }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input onChange={handleChange} type="text" value={commentBody} />
+      <label>
+        New comment:
+        <input onChange={handleChange} type="text" value={commentBody} />
+      </label>
       <button>Post</button>
     </form>
   );
