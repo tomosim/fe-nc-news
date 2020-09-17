@@ -30,6 +30,12 @@ export const postNewArticle = (newArticle) => {
     .then(({ data }) => data.article.article_id);
 };
 
+export const deleteArticle = (article_id) => {
+  return axios.delete(
+    `https://toms-nc-news-be.herokuapp.com/api/articles/${article_id}`
+  );
+};
+
 export const postComment = (article_id, comment) => {
   return axios
     .post(
