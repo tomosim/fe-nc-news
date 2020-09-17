@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Router } from "@reach/router";
 import AllArticles from "./pages/AllArticles";
 import ArticlesByTopic from "./pages/ArticlesByTopic";
 import SingleArticle from "./pages/SingleArticle";
 import Navbar from "./components/Navbar";
 import PostArticle from "./pages/PostArticle";
-import ProfilePage from "./pages/ProfilePage";
+import UserPage from "./pages/UserPage";
+import Login from "./pages/Login";
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState("");
   return (
     <>
-      <Navbar />
+      <Navbar loggedInUser={loggedInUser} />
       <Router>
         <AllArticles path="/" />
         <ArticlesByTopic path="/:topic/articles" />
         <SingleArticle path="/articles/:article_id" />
         <PostArticle path="/new-article" />
-        <ProfilePage path="/user/:username" />
+        <UserPage path="/user/:username" />
+        <Login path="/log-in" setLoggedInUser={setLoggedInUser} />
       </Router>
     </>
   );
