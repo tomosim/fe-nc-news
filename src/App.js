@@ -12,7 +12,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState("");
   return (
     <>
-      <Navbar loggedInUser={loggedInUser} />
+      <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
       <Router>
         <AllArticles path="/" />
         <ArticlesByTopic path="/:topic/articles" />

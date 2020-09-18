@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import { fetchTopics } from "../api";
 
-const Navbar = ({ loggedInUser }) => {
+const Navbar = ({ loggedInUser, setLoggedInUser }) => {
   const [topics, setTopics] = useState([]);
   const [subNavIsOpen, setSubNavIsOpen] = useState(false);
 
@@ -18,9 +18,12 @@ const Navbar = ({ loggedInUser }) => {
       <button onClick={() => setSubNavIsOpen(!subNavIsOpen)}>Topics</button>
       {loggedInUser && <Link to="/new-article">Post New Article</Link>}
       {loggedInUser === "" ? (
-        <Link to="/log-in">Login</Link>
+        <Link to="/log-in">Log In</Link>
       ) : (
-        <Link to={`/user/${loggedInUser}`}>My Profile</Link>
+        <>
+          <Link to={`/user/${loggedInUser}`}>My Profile</Link>
+          <button onClick={() => setLoggedInUser("")}>Log Out</button>
+        </>
       )}
       {subNavIsOpen && (
         <nav>
