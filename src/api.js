@@ -56,3 +56,10 @@ export const fetchTopics = () => {
     .get("https://toms-nc-news-be.herokuapp.com/api/topics")
     .then(({ data }) => data.topics);
 };
+
+export const vote = (article_id, inc_votes) => {
+  return axios.patch(
+    `https://toms-nc-news-be.herokuapp.com/api/articles/${article_id}`,
+    { inc_votes }
+  );
+};

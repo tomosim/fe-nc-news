@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchArticleById, deleteArticle } from "../api";
 import { navigate, Link } from "@reach/router";
 import CommentList from "../components/CommentList";
+import Voter from "../components/Voter";
 
 const SingleArticle = ({ article_id, loggedInUser }) => {
   const [article, setArticle] = useState({});
@@ -29,6 +30,7 @@ const SingleArticle = ({ article_id, loggedInUser }) => {
         <Link to={`/user/${article.author}`}>{article.author}</Link>
       </h2>
       <p>{article.body}</p>
+      <Voter votes={article.votes} article_id={article_id} />
       {loggedInUser === article.author && (
         <button onClick={handleClick}>Delete Article</button>
       )}
