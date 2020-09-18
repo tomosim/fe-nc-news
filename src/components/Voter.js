@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { vote } from "../api";
 
-const Voter = ({ votes, article_id }) => {
+const Voter = ({ votes, article_id, comment_id }) => {
   const [voteChange, setVoteChange] = useState(0);
 
   const handleVote = (change) => {
     setVoteChange(voteChange + change);
-    vote(article_id, change);
+    if (article_id !== undefined) vote({ article_id, change });
+    if (comment_id !== undefined) vote({ comment_id, change });
   };
   return (
     <div>
