@@ -28,7 +28,9 @@ const Navbar = ({ loggedInUser, setLoggedInUser }) => {
       {subNavIsOpen && (
         <nav>
           {topics.map((topic) => (
-            <Link to={`/${topic.slug}/articles`}>{topic.slug}</Link>
+            <Link to={`/${topic.slug}/articles`} key={topic.slug}>
+              {topic.slug}
+            </Link>
           ))}
         </nav>
       )}
