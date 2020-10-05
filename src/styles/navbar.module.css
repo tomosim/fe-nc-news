@@ -1,0 +1,43 @@
+.navbar {
+  width: 100vw;
+  border-bottom: rgb(69, 178, 251) solid 2px;
+  background-color: white;
+}
+
+.toprow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bottomrow {
+  display: flex;
+  background-color: rgb(69, 178, 251);
+  color: white;
+}
+
+.link {
+  border: none;
+  background-color: white;
+  text-align: center;
+  color: rgb(69, 178, 251);
+  font: 400 22px Arial;
+  text-decoration: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.bottomlink {
+  border: none;
+  background-color: rgb(69, 178, 251);
+  text-align: center;
+  color: white;
+  font: 400 22px Arial;
+  text-decoration: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.end {
+  margin-left: auto;
+}
