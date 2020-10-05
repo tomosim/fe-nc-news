@@ -4,8 +4,7 @@ import ArticleList from "../components/ArticleList";
 const UserPage = ({ username }) => {
   return (
     <div>
-      <h1>{username}</h1>
-      <h2>{`${username}'s articles`}</h2>
+      <h1 className="header">{`${username}'s articles`}</h1>
       <ArticleList user={username} />
     </div>
   );

@@ -39,7 +39,7 @@ const PostArticle = ({ loggedInUser }) => {
     </p>
   ) : (
     <div>
-      <h1>Post a new article</h1>
+      <h1 className="header">Post a new article</h1>
       {isPosting ? (
         <p>Posting article...</p>
       ) : (

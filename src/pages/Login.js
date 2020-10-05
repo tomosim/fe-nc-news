@@ -16,6 +16,7 @@ const Login = ({ setLoggedInUser }) => {
 
   return (
     <div>
+      <h1 className="header">Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Username:{" "}

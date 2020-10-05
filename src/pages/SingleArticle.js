@@ -25,7 +25,7 @@ const SingleArticle = ({ article_id, loggedInUser }) => {
     <p>Loading article</p>
   ) : (
     <div>
-      <h1>{article.title}</h1>
+      <h1 className="header">{article.title}</h1>
       <h2>
         <Link to={`/user/${article.author}`}>{article.author}</Link>
       </h2>
