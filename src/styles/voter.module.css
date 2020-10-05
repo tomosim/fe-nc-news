@@ -1,0 +1,36 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.up {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.up:hover {
+  color: rgb(245, 98, 45);
+}
+
+.down {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.down:hover {
+  color: rgb(69, 178, 251);
+}
+
+.votes {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}

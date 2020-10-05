@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { vote } from "../api";
+import styles from "../styles/voter.module.css";
 
 const Voter = ({ votes, article_id, comment_id }) => {
   const [voteChange, setVoteChange] = useState(0);
@@ -10,13 +11,21 @@ const Voter = ({ votes, article_id, comment_id }) => {
     if (comment_id !== undefined) vote({ comment_id, change });
   };
   return (
-    <div>
-      <button onClick={() => handleVote(1)} disabled={voteChange === 1}>
-        Up
+    <div className={styles.layout}>
+      <button
+        onClick={() => handleVote(1)}
+        disabled={voteChange === 1}
+        className={styles.up}
+      >
+        +
       </button>
-      <p>Votes: {votes + voteChange}</p>
-      <button onClick={() => handleVote(-1)} disabled={voteChange === -1}>
-        Down
+      <p className={styles.votes}>{votes + voteChange}</p>
+      <button
+        onClick={() => handleVote(-1)}
+        disabled={voteChange === -1}
+        className={styles.down}
+      >
+        -
       </button>
     </div>
   );
