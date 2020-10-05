@@ -7,13 +7,14 @@ import Navbar from "./components/Navbar";
 import PostArticle from "./pages/PostArticle";
 import UserPage from "./pages/UserPage";
 import Login from "./pages/Login";
+import "./App.css";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("");
   return (
     <>
       <Navbar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
-      <Router>
+      <Router id="main-content">
         <AllArticles path="/" />
         <ArticlesByTopic path="/:topic/articles" />
         <SingleArticle

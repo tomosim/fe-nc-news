@@ -1,0 +1,16 @@
+#main-content {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 20px;
+  border-bottom: solid 1px rgb(69, 178, 251);
+  background-color: white;
+  box-shadow: rgb(202, 202, 202) 2px 2px 8px;
+}
