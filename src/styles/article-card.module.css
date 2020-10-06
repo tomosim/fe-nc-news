@@ -33,6 +33,10 @@
   text-decoration: none;
 }
 
+.author:hover {
+  text-decoration: underline;
+}
+
 .preview {
   display: flex;
   flex-direction: column;
