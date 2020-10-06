@@ -50,8 +50,10 @@ const SingleArticle = ({ article_id, loggedInUser }) => {
         )}
       </div>
 
-      <h2>Comments</h2>
-      <CommentList article_id={article_id} loggedInUser={loggedInUser} />
+      <div className={styles.comments}>
+        <h2>Comments</h2>
+        <CommentList article_id={article_id} loggedInUser={loggedInUser} />
+      </div>
     </>
   );
 };
