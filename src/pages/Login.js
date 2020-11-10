@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { navigate } from "@reach/router";
 
+import styles from '../styles/forms.module.css'
+
 const Login = ({ setLoggedInUser }) => {
   const [username, setUsername] = useState("");
 
@@ -15,16 +17,17 @@ const Login = ({ setLoggedInUser }) => {
   };
 
   return (
-    <div>
+    <>
       <h1 className="header">Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label>
           Username:{" "}
           <input type="text" onChange={handleChange} value={username}></input>
         </label>
-        <button>Log In</button>
+        <button className={styles.button} >Log In</button>
+        <p className={styles.hint}><i>psst! Try "jessjelly"</i></p>
       </form>
-    </div>
+    </>
   );
 };
 

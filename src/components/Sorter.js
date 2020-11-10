@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { fetchArticles } from '../api';
-import styles from '../styles/sorter.module.css';
+import styles from '../styles/forms.module.css';
 
 const Sorter = ({setArticles}) => {
   const [sortBy, setSortBy] = useState('created_at')
@@ -19,6 +19,8 @@ const Sorter = ({setArticles}) => {
 
   return (
     <form className={styles.form} onSubmit={hanldleSubmit}>
+      <div className={styles.horizontal}>
+
       <label className={styles.label}>
       sort by:{" "}
       <select onChange={(event)=>setSortBy(event.target.value)} value={sortBy} name="sort_by" id="sort_by">
@@ -37,6 +39,7 @@ const Sorter = ({setArticles}) => {
       </select>
       </label>
       <button className={styles.button}>update</button>
+        </div>
     </form>
   );
 };

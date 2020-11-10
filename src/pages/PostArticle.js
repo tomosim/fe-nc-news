@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { postNewArticle, fetchTopics } from "../api";
 import { navigate, Link } from "@reach/router";
 
+import styles from '../styles/forms.module.css'
+
 const PostArticle = ({ loggedInUser }) => {
   const [newArticle, setNewArticle] = useState({
     title: "",
@@ -34,7 +36,7 @@ const PostArticle = ({ loggedInUser }) => {
     );
   };
   return loggedInUser === "" ? (
-    <p>
+    <p className={styles.form}>
       You must be <Link to="/log-in">logged in</Link> to post an article
     </p>
   ) : (
@@ -43,8 +45,8 @@ const PostArticle = ({ loggedInUser }) => {
       {isPosting ? (
         <p>Posting article...</p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label}>
             Title:
             <input
               type="text"
@@ -53,7 +55,7 @@ const PostArticle = ({ loggedInUser }) => {
               id="title"
             ></input>
           </label>
-          <label>
+          <label className={styles.label}>
             Topic:
             <select onChange={handleChange} value={newArticle.topic} id="topic">
               {isLoading ? (
@@ -65,7 +67,7 @@ const PostArticle = ({ loggedInUser }) => {
               )}
             </select>
           </label>
-          <label>
+          <label className={styles.label}>
             Body:
             <input
               type="text"
@@ -74,7 +76,7 @@ const PostArticle = ({ loggedInUser }) => {
               id="body"
             ></input>
           </label>
-          <button>Post</button>
+          <button className={styles.button}>Post</button>
         </form>
       )}
     </div>
