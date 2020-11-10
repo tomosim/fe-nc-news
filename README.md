@@ -2,9 +2,9 @@
 
 A React frontend to my fullstack Reddit-like news platform. Built using create-react-app, React hooks, and CSS Modules.
 
-A hosted verion can be found here.
+A hosted verion can be found [here](https://toms-nc-news-fe.netlify.app/).
 
-Backend repo is here.
+Backend repo is [here](https://github.com/tomosim/be-nc-news).
 
 ## 🏁 Getting Started
 
@@ -60,4 +60,4 @@ This project is licensed under the MIT License
 ## 🏅 Acknowledgments
 
 - [Northcoders](https://northcoders.com/)
-- [Heroku](https://www.heroku.com/)
+- [Netlify](https://www.netlify.com/)
