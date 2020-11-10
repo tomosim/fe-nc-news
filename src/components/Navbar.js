@@ -14,19 +14,19 @@ const Navbar = ({ loggedInUser, setLoggedInUser }) => {
   });
 
   return (
-    <nav class={styles.navbar}>
-      <div class={styles.toprow}>
-        <Link to="/" class={styles.link}>
+    <nav className={styles.navbar}>
+      <div className={styles.toprow}>
+        <Link to="/" className={styles.link}>
           Home
         </Link>
         <button
           onClick={() => setSubNavIsOpen(!subNavIsOpen)}
-          class={styles.link}
+          className={styles.link}
         >
           Topics
         </button>
         {loggedInUser && (
-          <Link to="/new-article" class={styles.link}>
+          <Link to="/new-article" className={styles.link}>
             Post New Article
           </Link>
         )}
@@ -38,11 +38,11 @@ const Navbar = ({ loggedInUser, setLoggedInUser }) => {
           <>
             <Link
               to={`/user/${loggedInUser}`}
-              class={`${styles.link} ${styles.end}`}
+              className={`${styles.link} ${styles.end}`}
             >
               My Profile
             </Link>
-            <button onClick={() => setLoggedInUser("")} class={styles.link}>
+            <button onClick={() => setLoggedInUser("")} className={styles.link}>
               Log Out
             </button>
           </>
@@ -54,7 +54,7 @@ const Navbar = ({ loggedInUser, setLoggedInUser }) => {
             <Link
               to={`/${topic.slug}/articles`}
               key={topic.slug}
-              class={styles.bottomlink}
+              className={styles.bottomlink}
             >
               {topic.slug}
             </Link>
