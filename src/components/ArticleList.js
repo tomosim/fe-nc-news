@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchArticles } from "../api";
 
 import ArticleCard from "./ArticleCard";
+import Sorter from "./Sorter";
 
 const ArticleList = ({ topic, user }) => {
   const [articles, setArticles] = useState([]);
@@ -17,11 +18,14 @@ const ArticleList = ({ topic, user }) => {
   return isLoading ? (
     <p>Loading</p>
   ) : (
+    <>
+    <Sorter setArticles={setArticles}/>
     <ul>
       {articles.map((article) => {
         return <ArticleCard article={article} key={article.article_id} />;
       })}
     </ul>
+    </>
   );
 };
 
