@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { fetchArticles } from '../api';
+import styles from '../styles/sorter.module.css';
 
 const Sorter = ({setArticles}) => {
   const [sortBy, setSortBy] = useState('created_at')
@@ -17,17 +18,17 @@ const Sorter = ({setArticles}) => {
   }
 
   return (
-    <form onSubmit={hanldleSubmit}>
-      <label>
-      Sort by:
-      <select  onChange={(event)=>setSortBy(event.target.value)} value={sortBy} name="sort_by" id="sort_by">
+    <form className={styles.form} onSubmit={hanldleSubmit}>
+      <label className={styles.label}>
+      sort by:{" "}
+      <select onChange={(event)=>setSortBy(event.target.value)} value={sortBy} name="sort_by" id="sort_by">
         <option value="created_at">date</option>
         <option value="votes">votes</option>
         <option value="comment_count">comment count</option>
       </select>
       </label>
-      <label>
-      Order:
+      <label className={styles.label}>
+      order:{" "}
       <select onChange={(e)=>setOrder(e.target.value)} value={order} name="order" id="order">
         {orderOptions[sortBy].map(option=>{
           return <option key={option.msg} value={option.value}>{option.msg}</option>
@@ -35,7 +36,7 @@ const Sorter = ({setArticles}) => {
         {/* <option value="desc">descending</option> */}
       </select>
       </label>
-      <button>Update</button>
+      <button className={styles.button}>update</button>
     </form>
   );
 };

@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  align-items: center;
+  border-bottom: rgb(69, 178, 251) 1px solid;
+  padding: 10px;
+  box-shadow: rgb(202, 202, 202) 2px 2px 8px;
+  background-color: white;
+}
+
+.label {
+  padding: 0 10px;
+}
+
+.dropdown {
+  margin-left: 3px;
+}
+
+.button {
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  padding: 6px 6px;
+  margin: 2px;
+  background-color: rgb(69, 178, 251);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
