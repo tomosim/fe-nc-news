@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { postNewArticle, fetchTopics } from "../api";
 import { navigate, Link } from "@reach/router";
 
-import styles from '../styles/forms.module.css'
+import styles from "../styles/forms.module.css";
 
 const PostArticle = ({ loggedInUser }) => {
   const [newArticle, setNewArticle] = useState({
@@ -53,6 +53,7 @@ const PostArticle = ({ loggedInUser }) => {
               onChange={handleChange}
               value={newArticle.title}
               id="title"
+              required
             ></input>
           </label>
           <label className={styles.label}>
@@ -74,6 +75,7 @@ const PostArticle = ({ loggedInUser }) => {
               onChange={handleChange}
               value={newArticle.body}
               id="body"
+              required
             ></input>
           </label>
           <button className={styles.button}>Post</button>

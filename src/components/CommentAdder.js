@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import styles from '../styles/forms.module.css'
+import styles from "../styles/forms.module.css";
 
 const CommentAdder = ({ addComment }) => {
   const [commentBody, setCommentBody] = useState("");
@@ -16,10 +16,18 @@ const CommentAdder = ({ addComment }) => {
   };
 
   return (
-    <form className={`${styles.form} ${styles.horizontal}`} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${styles.horizontal}`}
+      onSubmit={handleSubmit}
+    >
       <label className={styles.label}>
         New comment:
-        <input onChange={handleChange} type="text" value={commentBody} />
+        <input
+          onChange={handleChange}
+          type="text"
+          value={commentBody}
+          required
+        />
       </label>
       <button className={styles.button}>Post</button>
     </form>

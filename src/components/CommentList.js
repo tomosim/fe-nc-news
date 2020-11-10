@@ -3,18 +3,25 @@ import { fetchCommentsByArticleId, postComment, deleteComment } from "../api";
 import CommentCard from "./CommentCard";
 import CommentAdder from "./CommentAdder";
 import { Link } from "@reach/router";
+import ErrorMsg from "./ErrorMsg";
 
 const CommentList = ({ article_id, loggedInUser }) => {
   const [comments, setComments] = useState([]);
   const [commentsLoading, setCommentsLoading] = useState(true);
   const [posting, setPosting] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     console.log("comments refetching");
-    fetchCommentsByArticleId(article_id).then((comments) => {
-      setComments(comments);
-      setCommentsLoading(false);
-    });
+    fetchCommentsByArticleId(article_id)
+      .then((comments) => {
+        setComments(comments);
+        setCommentsLoading(false);
+      })
+      .catch(({ response }) => {
+        setCommentsLoading(false);
+        setError({ msg: response.data.msg, status: response.status });
+      });
   }, [article_id]);
 
   const addComment = (comment) => {
@@ -35,9 +42,10 @@ const CommentList = ({ article_id, loggedInUser }) => {
       .catch(console.log);
   };
 
-  return commentsLoading ? (
-    <p>"Loading comments"</p>
-  ) : (
+  if (commentsLoading) return <p>"Loading comments"</p>;
+  if (error) return ErrorMsg(error);
+
+  return (
     <>
       {loggedInUser === "" ? (
         <p>

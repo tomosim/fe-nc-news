@@ -20,8 +20,7 @@ export const fetchCommentsByArticleId = (article_id) => {
     .get(
       `https://toms-nc-news-be.herokuapp.com/api/articles/${article_id}/comments`
     )
-    .then(({ data }) => data.comments)
-    .catch(console.log);
+    .then(({ data }) => data.comments);
 };
 
 export const postNewArticle = (newArticle) => {
@@ -64,4 +63,10 @@ export const vote = ({ comment_id, article_id, change }) => {
   if (article_id !== undefined)
     URL = `https://toms-nc-news-be.herokuapp.com/api/articles/${article_id}`;
   return axios.patch(URL, { inc_votes: change });
+};
+
+export const fetchUsers = () => {
+  return axios
+    .get("https://toms-nc-news-be.herokuapp.com/api/users")
+    .then(({ data }) => data.users);
 };

@@ -8,6 +8,7 @@ import PostArticle from "./pages/PostArticle";
 import UserPage from "./pages/UserPage";
 import Login from "./pages/Login";
 import "./App.css";
+import ErrorMsg from "./components/ErrorMsg";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("");
@@ -24,6 +25,7 @@ function App() {
         <PostArticle path="/new-article" loggedInUser={loggedInUser} />
         <UserPage path="/user/:username" />
         <Login path="/log-in" setLoggedInUser={setLoggedInUser} />
+        <ErrorMsg error={{ status: 404, msg: "page not found" }} default />
       </Router>
     </>
   );
