@@ -12,7 +12,6 @@ const CommentList = ({ article_id, loggedInUser }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("comments refetching");
     fetchCommentsByArticleId(article_id)
       .then((comments) => {
         setComments(comments);

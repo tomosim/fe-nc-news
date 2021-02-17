@@ -30,7 +30,6 @@ const PostArticle = ({ loggedInUser }) => {
     setIsPosting(true);
     postNewArticle({ ...newArticle, author: loggedInUser }).then(
       (article_id) => {
-        console.log(article_id);
         navigate(`/articles/${article_id}`);
       }
     );

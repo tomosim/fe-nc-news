@@ -13,7 +13,6 @@ const ArticleList = ({ topic, user }) => {
   useEffect(() => {
     fetchArticles({ topic, author: user })
       .then((articles) => {
-        console.log(articles);
         setIsLoading(false);
         setArticles(articles);
       })

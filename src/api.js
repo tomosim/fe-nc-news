@@ -15,7 +15,6 @@ export const fetchArticleById = (article_id) => {
 };
 
 export const fetchCommentsByArticleId = (article_id) => {
-  console.log(article_id);
   return axios
     .get(
       `https://toms-nc-news-be.herokuapp.com/api/articles/${article_id}/comments`
